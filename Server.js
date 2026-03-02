@@ -9,7 +9,10 @@ const app = express(); // لازم نعرف app الأول
 
 // إعدادات الـ CORS الصح عشان تسمح لموقعك على Netlify
 app.use(cors({
-  origin: 'https://mohamed-sayed-portfolio.netlify.app', 
+  origin: [
+    'http://localhost:5173', 
+    'https://mohamed-sayed-portfolio.netlify.app' 
+  ],
   methods: ['GET', 'POST'],
   credentials: true
 }));
@@ -24,8 +27,9 @@ mongoose.connect(process.env.Mongo_URI)
 app.post('/feedbacksaved', saved);
 app.get('/seenfeed', seen);
 
-const PORT = process.env.PORT || 2000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
