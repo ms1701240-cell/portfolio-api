@@ -13,7 +13,7 @@ app.use(cors()); // دي بتفتح الباب لأي حد يكلم السيرف
 app.use(express.json());
 
 // الاتصال بالداتابيز
-mongoose.connect(process.env.Mongo_URI)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('SUCCESS: Connected to MongoDB'))
   .catch((err) => console.log('Error connecting to MongoDB:', err))
 
@@ -25,5 +25,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
 
 
