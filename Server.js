@@ -8,14 +8,7 @@ dotenv.config()
 const app = express(); // لازم نعرف app الأول
 
 // إعدادات الـ CORS الصح عشان تسمح لموقعك على Netlify
-app.use(cors({
-  origin: [
-    'http://localhost:5173', 
-    'https://mohamed-sayed-portfolio.netlify.app' 
-  ],
-  methods: ['GET', 'POST'],
-  credentials: true
-}));
+app.use(cors()); // دي بتفتح الباب لأي حد يكلم السيرفر
 
 app.use(express.json());
 
@@ -32,4 +25,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
 
